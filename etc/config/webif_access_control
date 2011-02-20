@@ -1,0 +1,11 @@
+config webif_access_control operator
+	option 'Info_001'       1
+	option 'Status_100'     1
+	option 'Log_003'  	1
+	option 'Graphs' 	1
+
+config webif_access_control guest
+	option 'Info_001'       1
+	option 'Status_100'     1
+
+

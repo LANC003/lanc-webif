@@ -1,0 +1,13 @@
+config 'lanc' 'video'
+	option 'addr'  '0x2000'
+	option 'size'  '0x40000'
+	option 'map'   '0x1000'
+	option 'waddr' '0x1000'
+	option 'word'  '0xa5a5a5a5'
+
+config 'lanc' 'control'
+	option 'addr'  '0x2000'
+	option 'size'  '0x40000'
+	option 'map'   '0x1000'
+	option 'waddr' '0x1000'
+	option 'word'  '0xa5a5a5a5'

@@ -1,0 +1,42 @@
+#! /bin/sh
+#
+# syslog	init.d script for busybox syslogd/klogd
+#		Written by Robert Griebl <sandman@handhelds.org>
+#               Configuration file added by <bruno.randolf@4g-systems.biz>
+set -e
+
+HTTPD_CONF="/etc/httpd.conf"
+HTTPD_ROOT="/www/"
+
+HTTPD_ARGS="-c ${HTTPD_CONF} -h ${HTTPD_ROOT}"
+
+case "$1" in
+  start)
+	echo -n "Starting httpd: "
+	#start-stop-daemon -S -b -n httpd -a /usr/sbin/httpd -- $HTTPD_ARGS
+	/usr/sbin/httpd $HTTPD_ARGS
+	echo "done"
+	;;
+
+  stop)
+	echo -n "Stopping httpd: "
+	start-stop-daemon -K -n httpd
+	echo "done"
+	;;
+
+  foreground)
+	echo -n "Starting httpd in foreground: "
+	/usr/sbin/httpd -f -v $HTTPD_ARGS
+	;;
+
+  restart)
+  	$0 stop
+	$0 start
+	;;
+  *)
+	echo "Usage: htpd { start | stop | foreground | restart }" >&2
+	exit 1
+	;;
+esac
+
+exit 0

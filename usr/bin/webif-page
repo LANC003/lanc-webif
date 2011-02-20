@@ -1,0 +1,4 @@
+#!/bin/bash
+
+/usr/bin/webif-page.orig \
+	"-p /usr/bin/haserl \"--upload-dir=/www/data --upload-limit=28672 --shell=/bin/bash\"" $@

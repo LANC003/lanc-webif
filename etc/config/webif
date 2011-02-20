@@ -1,0 +1,12 @@
+config webif general
+	option lang "en"
+	option firmware_name ""
+	option firmware_version ""
+	option firmware_subtitle ""
+	option device_name "LANC003"
+	option use_progressbar "0"
+	option firstboot	"0"
+
+config webif theme
+	option id "xwrt"
+

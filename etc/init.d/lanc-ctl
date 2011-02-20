@@ -1,0 +1,29 @@
+#! /bin/sh
+
+case "$1" in
+  start)
+	echo -n "Starting lanc-ctl"
+	# CS1/CS2 memory access via mtd device
+	insmod /data/phram.ko phram=fpga,0x50000000,512Mi
+	insmod /data/smc-timings.ko
+	echo "done"
+	;;
+
+  stop)
+	echo -n "Stopping lanc-ctl"
+	rmmod phram
+	rmmod smc-timings
+	echo "done"
+	;;
+
+  restart)
+  	$0 stop
+	$0 start
+	;;
+  *)
+	echo "Usage: lanc-ctl { start | stop | restart }" >&2
+	exit 1
+	;;
+esac
+
+exit 0

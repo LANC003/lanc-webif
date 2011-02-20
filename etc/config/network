@@ -1,0 +1,13 @@
+config 'network' 'eth0'
+	option 'ipaddr' '10.0.0.2'
+	option 'netmask' '255.0.0.0'
+	option 'type' 'static'
+	option 'auto' '0'
+
+
+config 'network' 'usb0'
+	option 'ipaddr' '192.168.1.10'
+	option 'netmask' '255.255.255.0'
+	option 'type' 'static'
+	option 'auto' '1'
+
